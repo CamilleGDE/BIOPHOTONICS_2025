@@ -23,7 +23,7 @@ SourcePos = [0, 0, 0];  % [cm]
 DetPos = [2, 0, 0];     % [cm]
 
 %% plot the fluence
-y = TDInfinite_sol(SourcePos,DetPos,n,mua,musp,t);
+y = TDInfinite(SourcePos,DetPos,n,mua,musp,t);
 figure(1),semilogy(t,y),
 ylim([1e-8 1e-2]);
 xlabel('time (ps)'),
@@ -34,7 +34,7 @@ muavector = 0:0.01:0.2;
 
 figure(2)
 for imua = muavector
-    y = TDInfinite_sol(SourcePos,DetPos,n,imua,musp,t);
+    y = TDInfinite(SourcePos,DetPos,n,imua,musp,t);
     semilogy(t,y),hold on;
 end
 ylim([1e-8 1e-3]),
@@ -48,7 +48,7 @@ muspvector = 5:20;
 
 figure(3),
 for imusp = muspvector
-    y = TDInfinite_sol(SourcePos,DetPos,n,mua,imusp,t);
+    y = TDInfinite(SourcePos,DetPos,n,mua,imusp,t);
     semilogy(t,y),hold on;
 end
 ylim([1e-8 1e-3]),
@@ -61,7 +61,7 @@ title('change musprime')
 detvector = 0.5:0.5:4;
 figure(4),
 for idet = detvector
-    y = TDInfinite_sol(SourcePos,[idet,0,0],n,mua,musp,t);
+    y = TDInfinite(SourcePos,[idet,0,0],n,mua,musp,t);
     semilogy(t,y),hold on;
 end
 ylim([1e-8 1e-2]),
